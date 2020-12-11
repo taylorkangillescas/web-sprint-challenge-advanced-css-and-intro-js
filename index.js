@@ -242,22 +242,25 @@ Use get20s to do the following:
 Example born in 1901 and died in 1959 - included -- born in 1889 and died in 1925 not included
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 
-function get20s(array, year){ // come back to this
-  // const byYear = [];
-  // for(let i = 0; i < array.length; i++){
-  //   if(array[i].years >= year)
-  //   byYear.push(array[i]);
-  // }
-  // return byYear
-
+function get20s(array){ // come back to this
     const byYear = [];
-    for(let i = 0; i < array.length; i++){
-      if(array[i].years >= 1900 || array[i].years <= 2000)
-      byYear.push(array[i]);
+    for(let i = 0; i < array.length; i++){    // let year = years.split(" - ") we need to split the years in our object to give us an array of xyear, yyear
+      if(array[i].years.split(" - ")[0] >= 1900 && array[i].years.split(" - ")[1] <= 2000)
+      byYear.push(array[i].name);
     }
     return byYear
 }
- console.log(get20s(artists, 1900));
+ console.log(get20s(artists));
+
+//  function get20s(array, year){ // come back to this
+//   const byYear = [];
+//   for(let i = 0; i < array.length; i++){
+//     if(array[i].years >= year)
+//     byYear.push(array[i]);
+//   }
+//   return byYear
+// }
+// console.log(get20s(artists, 1900));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -313,8 +316,9 @@ function lotsOfArt(array){
   if(array[i].paintings > 100){
     numPaintings.push(array[i].name);
   }
-  return numPaintings
-}}
+  }
+return numPaintings
+}
 console.log(lotsOfArt(artists));
 
 
